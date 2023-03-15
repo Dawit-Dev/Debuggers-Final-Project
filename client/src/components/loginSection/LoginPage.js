@@ -1,8 +1,12 @@
 import React, { useState } from "react";
-import { Form, Button, Card, Row, Col } from "react-bootstrap";
+import { Form, Card, Row, Col } from "react-bootstrap";
 import { Link, useNavigate } from "react-router-dom";
 import Header from "../Header";
 import logo from "../../pages/SignIn/student.png";
+import LoginIcon from "@mui/icons-material/Login";
+import LoadingButton from "@mui/lab/LoadingButton";
+
+
 
 function LoginPage({ email, setEmail }) {
 	// const [email, setEmail] = useState("");
@@ -41,7 +45,7 @@ function LoginPage({ email, setEmail }) {
 	return (
 		<>
 			<Header />
-			<Row className="justify-content-center mt-3">
+			<Row className="justify-content-center mt-3 text-center">
 				<Col md={6} lg={4} className="order-md-1 mb-4 mb-md-0">
 					<Card
 						style={{
@@ -63,11 +67,12 @@ function LoginPage({ email, setEmail }) {
 							<h3 className="mb-3">Log in</h3>
 							<Form onSubmit={handleLogin}>
 								<Form.Group controlId="formBasicEmail">
-									<Form.Label>Email address</Form.Label>
+									{/* <Form.Label>Email address</Form.Label> */}
 									<Form.Control
 										type="email"
-										placeholder="Enter email"
+										placeholder="Enter your email address"
 										value={email}
+										required
 										onChange={handleEmailChange}
 										style={{
 											width: "100%",
@@ -80,11 +85,13 @@ function LoginPage({ email, setEmail }) {
 									controlId="formBasicPassword"
 									style={{ marginTop: "5px" }}
 								>
-									<Form.Label>Password</Form.Label>
+									{/* <Form.Label>Password</Form.Label> */}
 									<Form.Control
+										className="mt-4"
 										type="password"
-										placeholder="Password"
+										placeholder="Enter your Password"
 										value={password}
+										required
 										onChange={handlePasswordChange}
 										style={{
 											width: "100%",
@@ -98,18 +105,20 @@ function LoginPage({ email, setEmail }) {
 										<p style={{ color: "red" }}>{errorMessage}</p>
 									)}
 								</div>
-
-								<Button
+								<LoadingButton
+									className="m-4"
+									color="error"
 									type="submit"
-									block="true"
+									loadingPosition="start"
+									startIcon={<LoginIcon />}
+									variant="contained"
 									style={{
-										marginTop: "20px",
-										boxShadow: "0px 2px 2px rgba(0, 0, 0, 0.25)",
-										background: "red",
+										width: "85%",
+										boxShadow: "0px 0px 6px rgba(0, 0, 0, 0.25)",
 									}}
 								>
-									Log in
-								</Button>
+									<span>Login</span>
+								</LoadingButton>
 
 								<div className="mt-2 text-center">
 									<span className="text-muted">Don't have an account? </span>
