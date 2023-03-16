@@ -11,7 +11,7 @@ const BookingModal = ({ eventId }) => {
 	// );
 	const token = localStorage.getItem("Token");
 	const header = { Authorization: `Bearer ${token}` };
-	console.log(eventId);
+
 	useEffect(() => {
 		fetch("/api/checkUserLogin", {
 			method: "POST",
@@ -25,10 +25,7 @@ const BookingModal = ({ eventId }) => {
 			.catch((err) => {
 				console.error(err);
 			});
-		fetch("/api/checkEvent/" + eventId, {
-			method: "GET",
-			headers: header,
-		})
+		fetch("/api/checkEvent/" + eventId)
 			.then((res) => res.json())
 			.then((data) => {
 				if (data.length > 0) {
@@ -37,7 +34,6 @@ const BookingModal = ({ eventId }) => {
 			});
 	}, []);
 
-	console.log(header);
 	const handleBookEvent = () => {
 		if (!userId) {
 			setErrorMessage(
