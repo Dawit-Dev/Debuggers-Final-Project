@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Form, Card, Row, Col } from "react-bootstrap";
 import { Link, useNavigate } from "react-router-dom";
 import Header from "../Header";
-import logo from "../../pages/SignIn/student.png";
+import logo from "../../pages/SignIn/login.png";
 import LoginIcon from "@mui/icons-material/Login";
 import LoadingButton from "@mui/lab/LoadingButton";
 
