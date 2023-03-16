@@ -18,6 +18,10 @@ console.log(eventId);
 	if (!event) {
 		return <div>Loading...</div>;
 	}
+	const formatDate = (dateString) => {
+		const date = new Date(dateString);
+		return date.toLocaleDateString();
+	};
 
 	return (
 		<div>
@@ -49,7 +53,7 @@ console.log(eventId);
 							</h3>
 							<Col md style={{ paddingLeft: "30px", fontSize: "20px" }}>
 								<p className="descriptionEvent">{event[0].description}</p>
-								<p>Event time: {event[0].time}</p>
+								<p>Event time: {formatDate(event[0].date)}</p>
 								<p>Event location: {event[0].location}</p>
 							</Col>
 							<Col md className="d-flex align-items-end justify-content-end">

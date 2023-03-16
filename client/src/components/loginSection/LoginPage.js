@@ -1,12 +1,12 @@
 import React, { useState } from "react";
-import { Form, Card, Row, Col } from "react-bootstrap";
+import { Form, Card, Row } from "react-bootstrap";
 import { Link, useNavigate } from "react-router-dom";
 import Header from "../Header";
-import logo from "../../pages/SignIn/login.png";
+ 
+import logo from "../../pages/SignIn/Hero-Study-Gradient.jpg";
+ 
 import LoginIcon from "@mui/icons-material/Login";
 import LoadingButton from "@mui/lab/LoadingButton";
-
-
 
 function LoginPage({ email, setEmail }) {
 	// const [email, setEmail] = useState("");
@@ -43,93 +43,89 @@ function LoginPage({ email, setEmail }) {
 	};
 
 	return (
-		<>
+		<main className="d-flex flex-column align-items-center ustify-content-center">
 			<Header />
-			<Row className="justify-content-center mt-3 text-center">
-				<Col md={6} lg={4} className="order-md-1 mb-4 mb-md-0">
-					<Card
-						style={{
-							boxShadow: "0px 4px 4px rgba(0, 0, 0, 0.25)",
-							borderRadius: "12px",
-						}}
+			<Row className="justify-content-center mt-3 d-flex">
+				<Card
+					style={{
+						boxShadow: "0px 4px 4px rgba(0, 0, 0, 0.25)",
+						borderRadius: "12px",
+						width: "35rem",
+					}}
+				>
+					<div
+						className="text-center"
+						style={{ margin: "10px", borderRadius: "12px" }}
 					>
-						<div
-							className="text-center"
-							style={{ margin: "10px", borderRadius: "12px" }}
-						>
-							<img
-								src={logo}
-								alt="Logo"
-								style={{ width: "100%", height: "350px", borderRadius: "12px" }}
-							/>
-						</div>
-						<Card.Body>
-							<h3 className="mb-3">Log in</h3>
-							<Form onSubmit={handleLogin}>
-								<Form.Group controlId="formBasicEmail">
-									{/* <Form.Label>Email address</Form.Label> */}
-									<Form.Control
-										type="email"
-										placeholder="Enter your email address"
-										value={email}
-										required
-										onChange={handleEmailChange}
-										style={{
-											width: "100%",
-											boxShadow: "0px 0px 6px rgba(0, 0, 0, 0.25)",
-										}}
-									/>
-								</Form.Group>
-
-								<Form.Group
-									controlId="formBasicPassword"
-									style={{ marginTop: "5px" }}
-								>
-									{/* <Form.Label>Password</Form.Label> */}
-									<Form.Control
-										className="mt-4"
-										type="password"
-										placeholder="Enter your Password"
-										value={password}
-										required
-										onChange={handlePasswordChange}
-										style={{
-											width: "100%",
-											boxShadow: "0px 0px 6px rgba(0, 0, 0, 0.25)",
-										}}
-									/>
-								</Form.Group>
-
-								<div style={{ marginTop: "10px" }}>
-									{errorMessage && (
-										<p style={{ color: "red" }}>{errorMessage}</p>
-									)}
-								</div>
-								<LoadingButton
-									className="m-4"
-									color="error"
-									type="submit"
-									loadingPosition="start"
-									startIcon={<LoginIcon />}
-									variant="contained"
+						<img
+							src={logo}
+							alt="Logo"
+							style={{ width: "100%", height: "auto", borderRadius: "12px" }}
+						/>
+					</div>
+					<Card.Body>
+						<h3 className="mb-3">Log in</h3>
+						<Form onSubmit={handleLogin}>
+							<Form.Group controlId="formBasicEmail">
+								<Form.Control
+									type="email"
+									placeholder="Enter your email address"
+									value={email}
+									required
+									onChange={handleEmailChange}
 									style={{
-										width: "85%",
+										width: "100%",
 										boxShadow: "0px 0px 6px rgba(0, 0, 0, 0.25)",
 									}}
-								>
-									<span>Login</span>
-								</LoadingButton>
+								/>
+							</Form.Group>
 
-								<div className="mt-2 text-center">
-									<span className="text-muted">Don't have an account? </span>
-									<Link to="/register">Sign up</Link>
-								</div>
-							</Form>
-						</Card.Body>
-					</Card>
-				</Col>
+							<Form.Group
+								controlId="formBasicPassword"
+								style={{ marginTop: "5px" }}
+							>
+								<Form.Control
+									className="mt-4"
+									type="password"
+									placeholder="Enter your Password"
+									value={password}
+									required
+									onChange={handlePasswordChange}
+									style={{
+										width: "100%",
+										boxShadow: "0px 0px 6px rgba(0, 0, 0, 0.25)",
+									}}
+								/>
+							</Form.Group>
+
+							<div style={{ marginTop: "10px" }}>
+								{errorMessage && <p style={{ color: "red" }}>{errorMessage}</p>}
+							</div>
+
+							<LoadingButton
+								className="m-4"
+								color="error"
+								type="submit"
+								loadingPosition="start"
+								startIcon={<LoginIcon />}
+								variant="contained"
+								style={{
+									width: "90%",
+									boxShadow: "0px 0px 6px rgba(0, 0, 0, 0.25)",
+								}}
+							>
+								<span>Login</span>
+							</LoadingButton>
+
+							<div className="mt-2 text-center">
+								<span className="text-muted">Don&apos;t have an account? </span>
+								<Link to="/register">Sign up</Link>
+							</div>
+						</Form>
+					</Card.Body>
+				</Card>
 			</Row>
-		</>
+		</main>
 	);
 }
 
