@@ -1,4 +1,3 @@
-
 import  { Router } from "express";
 import db from "./db";
 import fileUpload from "express-fileupload";
@@ -13,7 +12,6 @@ import registrationRouter from "./registration";
 import authorization from "./authorization";
 import authentication from "./authentication";
 import reCaptcha from "./reCaptcha";
-
 
 const router = Router();
 router.use(fileUpload());
@@ -44,8 +42,8 @@ router.post("/checkUser",authentication,authorization,(req,res)=>{
 			userId: req.authentication.userId,
 		});
 });
-//update exists event
 
+//update exists event
 router.put("/updateEvent",authorization,authentication, (req, res) => {
 		const {
 			title,
@@ -73,11 +71,11 @@ router.put("/updateEvent",authorization,authentication, (req, res) => {
 				req.authentication.userId,
 				eventId,
 			];
+			//save data into DB
 		save(query,inputs,res);
 });
 
 //insert new event into database
-
 router.post("/addNewEvent",authorization,authentication,(req,res)=>{
 		const {
 			title,
@@ -136,14 +134,12 @@ router.delete("/deleteEvent",authentication,authorization,(req,res)=>{
 		});
 });
 
-
 //login user as Admin
-
 router.post("/adminLogin",reCaptcha, (req, res) => {
 	const email = req.body.email;
 	const pass = req.body.password;
-	//check email exist
 
+	//check email exist
 	db.query("SELECT * FROM users WHERE email = $1",[email])
 	.then((result) => {
 		if(result.rows.length === 1) {

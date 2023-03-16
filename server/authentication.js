@@ -9,10 +9,9 @@ const authentication = (req, res, next) => {
 	try {
 		//if token exist
 		if (token) {
-			//verify token
 			token = token.split(" ")[1];
+			//verify token
 			const { username, userId } = jwt.verify(token, process.env.JWT_SECRET);
-
 			req.authentication = {
 				username: username,
 				userId: userId,

@@ -9,10 +9,9 @@ const authorization = (req, res, next) => {
 	try {
 		//if token exist
 		if (token) {
-			//verify token
 			token = token.split(" ")[1];
+			//verify token
 			const { isAdmin } = jwt.verify(token, process.env.JWT_SECRET);
-
 			req.authorization = {
 				isAdmin: isAdmin,
 			};
