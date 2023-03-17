@@ -6,7 +6,7 @@ export default function SimpleBottomNavigation() {
 	return (
 		<div className="text-center m-3">
 			<Typography>
-				© 2023 | Code Your Future
+				© Copy Right 2023 | The Debuggers. A CYF project
 			</Typography>
 		</div>
 	);

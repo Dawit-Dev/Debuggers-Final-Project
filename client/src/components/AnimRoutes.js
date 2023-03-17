@@ -32,7 +32,7 @@ const AnimRoutes = () => {
 				<Route path="/signin" element={<SignIn />} />
 				<Route path="/tutors" element={<TutorDetails />} />
 				<Route path="/login" element={<LoginPage email={email} setEmail={setEmail} />} />
-				<Route path="/Adminlogin" element={<AdminLogin />} />
+				<Route path="/AdminLogin" element={<AdminLogin />} />
 				<Route path="/AdminDashboard" element={<AdminPortal />} />
 				<Route path="/register" element={<RegistrationForm />} />
 				<Route path="/" element={<HomeVideo />} />
