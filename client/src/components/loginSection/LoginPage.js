@@ -2,9 +2,7 @@ import React, { useState } from "react";
 import { Form, Card, Row } from "react-bootstrap";
 import { Link, useNavigate } from "react-router-dom";
 import Header from "../Header";
- 
 import logo from "../../pages/SignIn/login.png";
- 
 import LoginIcon from "@mui/icons-material/Login";
 import LoadingButton from "@mui/lab/LoadingButton";
 
@@ -43,24 +41,29 @@ function LoginPage({ email, setEmail }) {
 	};
 
 	return (
-		<main className="d-flex flex-column align-items-center ustify-content-center">
+		<main>
 			<Header />
 			<Row className="justify-content-center mt-3 d-flex">
 				<Card
 					style={{
 						boxShadow: "0px 4px 4px rgba(0, 0, 0, 0.25)",
 						borderRadius: "12px",
-						width: "35rem",
+						width: "30rem",
 					}}
 				>
 					<div
-						className="text-center"
+						className="text-center mt-4"
 						style={{ margin: "10px", borderRadius: "12px" }}
 					>
 						<img
 							src={logo}
 							alt="Logo"
-							style={{ width: "100%", height: "auto", borderRadius: "12px" }}
+							style={{
+								width: "100%",
+								height: "auto",
+								borderRadius: "12px",
+								boxShadow: "0px 4px 4px rgba(0, 0, 0, 0.25)",
+							}}
 						/>
 					</div>
 					<Card.Body>
